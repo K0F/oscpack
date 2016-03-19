@@ -13,7 +13,7 @@ ELSE(WIN32)
  set(IpSystemTypePath ip/posix)
 ENDIF(WIN32)
 
-ADD_LIBRARY(oscpack 
+ADD_LIBRARY(oscpack STATIC
 
 ip/IpEndpointName.h
 ip/IpEndpointName.cpp
@@ -28,7 +28,7 @@ ip/PacketListener.h
 ip/TimerListener.h
 
 osc/OscTypes.h
-osc/OscTypes.cpp 
+osc/OscTypes.cpp
 osc/OscHostEndianness.h
 osc/OscException.h
 osc/OscPacketListener.h
@@ -74,3 +74,5 @@ elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
   # Update if necessary
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wno-long-long -pedantic")
 endif()
+
+install(FILES LICENSE DESTINATION ${CMAKE_BINARY_DIR}/ )
