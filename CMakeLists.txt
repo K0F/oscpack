@@ -42,7 +42,9 @@ osc/OscOutboundPacketStream.cpp
 
 )
 
+OPTION(build_examples OFF)
 
+if(build_examples)
 ADD_EXECUTABLE(OscUnitTests tests/OscUnitTests.cpp)
 TARGET_LINK_LIBRARIES(OscUnitTests oscpack ${LIBS})
 
@@ -61,6 +63,8 @@ TARGET_LINK_LIBRARIES(SimpleReceive oscpack ${LIBS})
 
 ADD_EXECUTABLE(SimpleSend examples/SimpleSend.cpp)
 TARGET_LINK_LIBRARIES(SimpleSend oscpack ${LIBS})
+
+endif()
 
 
 if(MSVC)
